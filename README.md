@@ -120,13 +120,4 @@ Una vez hayas terminado tu parte y hayas verificado que todo funciona correctame
    git push origin TuUsuarioDeGitHubBranch
    ```
 
-4. **Crear un Pull Request (PR) en GitHub:**
-   - Ve a la página de tu repositorio en GitHub.
-   - Deberías ver un mensaje para crear un Pull Request (PR) de tu rama hacia main (o la rama principal que estén usando).
-   - Escribe un título y una descripción detallada del trabajo realizado. Asegúrate de incluir información relevante como qué consultas agregaste o modificaste.
-   - **Asignar a un revisor:** En la sección de "Reviewers", asigna a Sr. Pitaya (o a la persona encargada de revisar tu trabajo).
-
-5. **Esperar la revisión:**
-   Después de crear el PR, espera la revisión y aprobación antes de fusionarlo a la rama principal. Si hay algún detalle por corregir, te lo harán saber.
-
 ✅ ¡Listo! Una vez aprobado el PR, tu trabajo se fusionará con la rama principal y estará disponible para todos los miembros del proyecto.
