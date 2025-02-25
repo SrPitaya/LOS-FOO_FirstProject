@@ -1,4 +1,4 @@
-# 📌 Proyecto 1 de PABD - *by FOO's*
+# 📌 Proyecto 1 de PABD - *by LOS FOO!*
 
 ## 🚀 Instalación del Proyecto  
 
