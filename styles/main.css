@@ -1,0 +1,24 @@
+.gradient {
+  background: linear-gradient(90deg, #d53369 0%, #515dda 100%);
+}
+.logo-black {
+  filter: invert(1);
+}
+.menu-black {
+  filter: invert(1);
+}
+.rounded-box {
+  border-radius: 0.5rem; /* Adjust the value as needed */
+}
+.modal {
+  z-index: 50; /* Ensure modal appears above the navigation bar */
+}
+.modal-content {
+  cursor: default; /* Default cursor for modal content */
+}
+.modal-button {
+  cursor: pointer; /* Pointer cursor for buttons inside modal */
+}
+.filter-black {
+  filter: invert(1);
+}
