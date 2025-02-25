@@ -35,13 +35,13 @@
             </div>
             <!-- Miembro 3 -->
             <div class="flex flex-col items-center">
-              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Miembro 3">
+              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/56.jpg" alt="Miembro 3">
               <p class="mt-2 text-sm text-gray-700">Erick Mora</p>
               <p class="text-xs text-gray-500">Gerente de Proyecto</p>
             </div>
             <!-- Miembro 4 -->
             <div class="flex flex-col items-center">
-              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/women/2.jpg" alt="Miembro 4">
+              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/13.jpg" alt="Miembro 4">
               <p class="mt-2 text-sm text-gray-700">Emmanuel Tuz</p>
               <p class="text-xs text-gray-500">Analista de Datos</p>
             </div>
