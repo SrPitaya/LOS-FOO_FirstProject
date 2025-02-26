@@ -23,25 +23,25 @@
           <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Miembro 1 -->
             <div class="flex flex-col items-center">
-              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" alt="Miembro 1">
+              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/50.jpg" alt="Miembro 1">
               <p class="mt-2 text-sm text-gray-700">Alan Coral</p>
               <p class="text-xs text-gray-500">Desarrollador</p>
             </div>
             <!-- Miembro 2 -->
             <div class="flex flex-col items-center">
-              <img class="w-24 h-24 rounded-full" src="img/perfil.jpg" alt="Miembro 2">
+              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/80.jpg" alt="Miembro 2">
               <p class="mt-2 text-sm text-gray-700">Axel Mis</p>
               <p class="text-xs text-gray-500">Diseñador</p>
             </div>
             <!-- Miembro 3 -->
             <div class="flex flex-col items-center">
-              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/2.jpg" alt="Miembro 3">
+              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/25.jpg" alt="Miembro 3">
               <p class="mt-2 text-sm text-gray-700">Erick Mora</p>
               <p class="text-xs text-gray-500">Gerente de Proyecto</p>
             </div>
             <!-- Miembro 4 -->
             <div class="flex flex-col items-center">
-              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/women/2.jpg" alt="Miembro 4">
+              <img class="w-24 h-24 rounded-full" src="https://randomuser.me/api/portraits/men/69.jpg" alt="Miembro 4">
               <p class="mt-2 text-sm text-gray-700">Emmanuel Tuz</p>
               <p class="text-xs text-gray-500">Analista de Datos</p>
             </div>
