@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -108,6 +107,9 @@
         </div>
         <?php include 'components/consulta1.php'; ?>
         <?php include 'components/consulta2.php'; ?>
+        <?php include 'components/consulta3.php'; ?> <!-- New consulta3 component -->
+        <?php include 'components/consulta4.php'; ?> <!-- New consulta4 component -->
+        <?php include 'components/consulta5.php'; ?> <!-- New consulta5 component -->
     </section>
     
 
