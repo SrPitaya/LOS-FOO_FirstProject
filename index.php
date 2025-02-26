@@ -110,6 +110,9 @@
         <?php include 'components/consulta3.php'; ?> <!-- New consulta3 component -->
         <?php include 'components/consulta4.php'; ?> <!-- New consulta4 component -->
         <?php include 'components/consulta5.php'; ?> <!-- New consulta5 component -->
+        <?php include 'components/consulta6.php'; ?>
+        <?php include 'components/consulta7.php'; ?>
+        <?php include 'components/consulta8.php'; ?>
     </section>
     
 
