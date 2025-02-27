@@ -16,7 +16,8 @@ include 'config/db.php';
             <thead id="tableHeader7" style="display: none;">
               <tr class="bg-gray-800 text-white text-left">
                 <th class="p-4">Nombre del Profesor</th>
-                <th class="p-4">Mejores Promedios</th>
+                <th class="p-4">Total_Alumnos</th>
+                <th class="p-4">Promedios</th>
               </tr>
             </thead>
             <tbody class="text-black" id="profesorTableBody7">

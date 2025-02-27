@@ -5,7 +5,7 @@ include '../config/db.php';
 $query = "SELECT 
             COUNT(alumno.idAlumno) AS Cantidad_Alumnos, 
             (SELECT COUNT(alumno.beca) FROM alumno WHERE beca = 'si') AS Cantidad_Becados, 
-            CONCAT((SELECT COUNT(alumno.beca) FROM alumno WHERE beca = 'si') * 100 / COUNT(alumno.idAlumno), '%') AS Porcentaje_Becado 
+            CONCAT(ROUND((SELECT COUNT(alumno.beca) FROM alumno WHERE beca = 'si') * 100 / COUNT(alumno.idAlumno),2), '%') AS Porcentaje_Becado 
           FROM alumno";
 $result = mysqli_query($conn, $query);
 

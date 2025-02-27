@@ -16,8 +16,8 @@ include 'config/db.php';
             <thead id="tableHeader" style="display: none;">
               <tr class="bg-gray-800 text-white text-left">
                 <th class="p-4">Nombre del Profesor</th>
-                <th class="p-4">Teléfono</th>
-                <th class="p-4">Asignatura</th>
+                <th class="p-4">Teléfonos</th>
+                <th class="p-4">Asignaturas</th>
                 <th class="p-4">Categoría</th>
               </tr>
             </thead>

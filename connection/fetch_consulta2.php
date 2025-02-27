@@ -9,8 +9,9 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
 // Consulta para obtener los registros de la página actual
-$query = "SELECT idAlumno, CONCAT(nombre, ' ', apellido1, ' ', apellido2) AS 'Nombre del Alumno'
-          FROM alumno
+$query = "SELECT alumno.NIF, CONCAT(alumno.nombre, ' ', alumno.apellido1, ' ', alumno.apellido2) AS Lista_de_Alumnos, 
+          alumno.email 
+          FROM alumno 
           LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $query);
 
@@ -26,13 +27,14 @@ $totalPages = ceil($total / $limit);
 // Generar las filas de la tabla
 while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr class='border-b hover:bg-gray-100 transition'>";
-    echo "<td class='p-4'>" . $row['idAlumno'] . "</td>";
-    echo "<td class='p-4'>" . $row['Nombre del Alumno'] . "</td>";
+    echo "<td class='p-4'>" . $row['NIF'] . "</td>";
+    echo "<td class='p-4'>" . $row['Lista_de_Alumnos'] . "</td>";
+    echo "<td class='p-4'>" . $row['email'] . "</td>";
     echo "</tr>";
 }
 
 // Generar los botones de paginación
-echo "<tr><td colspan='2' class='p-4'>";
+echo "<tr><td colspan='3' class='p-4'>";
 echo "<div class='flex justify-center space-x-2'>";
 
 $maxButtons = 5;
