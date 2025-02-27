@@ -15,9 +15,8 @@ include 'config/db.php';
           <table class="w-full border-collapse rounded-lg bg-white shadow-lg overflow-hidden ml-6 mr-6">
             <thead id="tableHeader8" style="display: none;">
               <tr class="bg-gray-800 text-white text-left">
-                <th class="p-4">Calificación</th>
                 <th class="p-4">Nombre de Alumnos</th>
-                <th class="p-4">Materia</th>
+                <th class="p-4">Materia_Calificaciones</th>
               </tr>
             </thead>
             <tbody class="text-black" id="alumnosTableBody8">

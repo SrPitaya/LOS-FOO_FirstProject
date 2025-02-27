@@ -8,21 +8,26 @@ $limit = 10;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
-// Consulta para obtener los registros de la página actual
-$query = "SELECT CONCAT(profesor.nombre, ' ', profesor.apellido1, ' ', profesor.apellido2) AS 'Nombre del Profesor', tlfcontactoprof.telefono, asignatura.nombre AS 'asignatura', profesor.categoria
-          FROM profesor
-          INNER JOIN impartir ON impartir.idProfesor = profesor.idProfesor
-          INNER JOIN asignatura ON impartir.idAsignatura = asignatura.idAsignatura
-          INNER JOIN tlfcontactoprof ON profesor.idProfesor = tlfcontactoprof.idProfesor
-          ORDER BY profesor.categoria
+// Nueva consulta para obtener los registros de la página actual
+$query = "SELECT CONCAT(profesor.nombre, ' ', profesor.apellido1, ' ', profesor.apellido2) AS Nombre_Profesor, 
+          GROUP_CONCAT(tlfcontactoprof.telefono SEPARATOR ' - ') AS telefonos, 
+          GROUP_CONCAT(asignatura.nombre SEPARATOR '\n') AS Materias, 
+          profesor.categoria AS Categorias 
+          FROM impartir  
+          JOIN profesor ON impartir.idProfesor = profesor.idProfesor  
+          JOIN asignatura ON impartir.idAsignatura = asignatura.idAsignatura 
+          LEFT JOIN tlfcontactoprof ON profesor.idProfesor = tlfcontactoprof.idProfesor 
+          GROUP BY profesor.idProfesor, profesor.categoria 
+          ORDER BY profesor.categoria 
           LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $query);
 
 // Consulta para obtener el total de registros
-$totalQuery = "SELECT COUNT(*) as total FROM profesor
-               INNER JOIN impartir ON impartir.idProfesor = profesor.idProfesor
-               INNER JOIN asignatura ON impartir.idAsignatura = asignatura.idAsignatura
-               INNER JOIN tlfcontactoprof ON profesor.idProfesor = tlfcontactoprof.idProfesor";
+$totalQuery = "SELECT COUNT(DISTINCT profesor.idProfesor) as total 
+               FROM impartir  
+               JOIN profesor ON impartir.idProfesor = profesor.idProfesor  
+               JOIN asignatura ON impartir.idAsignatura = asignatura.idAsignatura 
+               LEFT JOIN tlfcontactoprof ON profesor.idProfesor = tlfcontactoprof.idProfesor";
 $totalResult = mysqli_query($conn, $totalQuery);
 $totalRow = mysqli_fetch_assoc($totalResult);
 $total = $totalRow['total'];
@@ -33,10 +38,10 @@ $totalPages = ceil($total / $limit);
 // Generar las filas de la tabla
 while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr class='border-b hover:bg-gray-100 transition'>";
-    echo "<td class='p-4'>" . $row['Nombre del Profesor'] . "</td>";
-    echo "<td class='p-4'>" . $row['telefono'] . "</td>";
-    echo "<td class='p-4'>" . $row['asignatura'] . "</td>";
-    echo "<td class='p-4 font-semibold'>" . $row['categoria'] . "</td>";
+    echo "<td class='p-4'>" . nl2br($row['Nombre_Profesor']) . "</td>";
+    echo "<td class='p-4'>" . nl2br($row['telefonos']) . "</td>";
+    echo "<td class='p-4'>" . nl2br($row['Materias']) . "</td>";
+    echo "<td class='p-4 font-semibold'>" . nl2br($row['Categorias']) . "</td>";
     echo "</tr>";
 }
 

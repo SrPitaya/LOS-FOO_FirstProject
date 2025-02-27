@@ -15,8 +15,9 @@ include 'config/db.php';
           <table class="w-full border-collapse rounded-lg bg-white shadow-lg overflow-hidden ml-6 mr-6">
             <thead id="tableHeader2" style="display: none;">
               <tr class="bg-gray-800 text-white text-left">
-                <th class="p-4">ID Alumno</th>
+                <th class="p-4">NIF</th>
                 <th class="p-4">Nombre del Alumno</th>
+                <th class="p-4">Email</th>
               </tr>
             </thead>
             <tbody class="text-black" id="alumnoTableBody">

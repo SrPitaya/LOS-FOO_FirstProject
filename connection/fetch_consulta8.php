@@ -9,19 +9,23 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
 // Consulta para obtener los registros de la página actual
-$query = "SELECT 
-            matricula.nota AS Calificacion, 
-            CONCAT(alumno.nombre, ' ', alumno.apellido1, ' ', alumno.apellido2) AS Nombre_Alumnos, 
-            asignatura.nombre AS Materia 
+$query = "SELECT CONCAT(alumno.nombre, ' ', alumno.apellido1, ' ', alumno.apellido2) AS Nombre_Alumnos, 
+          GROUP_CONCAT(CONCAT('(', asignatura.nombre, ' -> Calf = [', matricula.nota, '])') SEPARATOR '\n') AS Materias_Calf 
           FROM matricula 
           JOIN alumno ON alumno.idAlumno = matricula.idAlumno 
           JOIN asignatura ON asignatura.idAsignatura = matricula.idAsignatura 
           WHERE nota < 7 
+          GROUP BY alumno.idAlumno 
+          ORDER BY Nombre_Alumnos 
           LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $query);
 
 // Consulta para obtener el total de registros
-$totalQuery = "SELECT COUNT(*) as total FROM matricula WHERE nota < 7";
+$totalQuery = "SELECT COUNT(DISTINCT alumno.idAlumno) as total 
+               FROM matricula 
+               JOIN alumno ON alumno.idAlumno = matricula.idAlumno 
+               JOIN asignatura ON asignatura.idAsignatura = matricula.idAsignatura 
+               WHERE nota < 7";
 $totalResult = mysqli_query($conn, $totalQuery);
 $totalRow = mysqli_fetch_assoc($totalResult);
 $total = $totalRow['total'];
@@ -32,14 +36,13 @@ $totalPages = ceil($total / $limit);
 // Generar las filas de la tabla
 while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr class='border-b hover:bg-gray-100 transition'>";
-    echo "<td class='p-4'>" . $row['Calificacion'] . "</td>";
-    echo "<td class='p-4'>" . $row['Nombre_Alumnos'] . "</td>";
-    echo "<td class='p-4'>" . $row['Materia'] . "</td>";
+    echo "<td class='p-4'>" . nl2br($row['Nombre_Alumnos']) . "</td>";
+    echo "<td class='p-4'>" . nl2br($row['Materias_Calf']) . "</td>";
     echo "</tr>";
 }
 
 // Generar los botones de paginación
-echo "<tr><td colspan='3' class='p-4'>";
+echo "<tr><td colspan='2' class='p-4'>";
 echo "<div class='flex justify-center space-x-2'>";
 
 $maxButtons = 5;

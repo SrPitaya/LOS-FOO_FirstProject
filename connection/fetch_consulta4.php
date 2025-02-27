@@ -9,12 +9,12 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $offset = ($page - 1) * $limit;
 
 // Consulta para obtener los registros de la página actual
-$query = "SELECT asignatura.nombre AS Materia, matricula.nota AS Calificaciones, 
-          CONCAT(alumno.nombre, ' ', alumno.apellido1, ' ', alumno.apellido2) AS Lista_de_Alumnos 
+$query = "SELECT CONCAT(alumno.nombre, ' ', alumno.apellido1, ' ', alumno.apellido2) AS Lista_de_Alumnos, 
+          asignatura.nombre AS Materia, matricula.nota AS Calificaciones 
           FROM alumno  
           JOIN matricula ON matricula.idAlumno = alumno.idAlumno 
           JOIN asignatura ON matricula.idAsignatura = asignatura.idAsignatura 
-          ORDER BY asignatura.idAsignatura, Calificaciones
+          ORDER BY asignatura.idAsignatura, Calificaciones 
           LIMIT $limit OFFSET $offset";
 $result = mysqli_query($conn, $query);
 
@@ -30,9 +30,9 @@ $totalPages = ceil($total / $limit);
 // Generar las filas de la tabla
 while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr class='border-b hover:bg-gray-100 transition'>";
+    echo "<td class='p-4'>" . $row['Lista_de_Alumnos'] . "</td>";
     echo "<td class='p-4'>" . $row['Materia'] . "</td>";
     echo "<td class='p-4'>" . $row['Calificaciones'] . "</td>";
-    echo "<td class='p-4'>" . $row['Lista_de_Alumnos'] . "</td>";
     echo "</tr>";
 }
 
